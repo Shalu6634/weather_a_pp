@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-
-
 class WeatherApiHelper {
   Future<Map<String, dynamic>> fetchDataFromWeather(String search) async {
     String weatherApi =
