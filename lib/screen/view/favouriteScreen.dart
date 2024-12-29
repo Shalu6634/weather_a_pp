@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_a_pp/screen/provider/weather_provider.dart';
-import 'package:provider/provider.dart';
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
 
@@ -17,7 +16,7 @@ class FavouriteScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text(
+        title: const Text(
           'Favourite',
           style: TextStyle(color: Colors.white),
         ),
@@ -30,7 +29,7 @@ class FavouriteScreen extends StatelessWidget {
                 (index) => Padding(
                       padding: const EdgeInsets.all(10),
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         height: height * 0.1,
                         width: width * 0.8,
                         decoration: BoxDecoration(
@@ -41,27 +40,24 @@ class FavouriteScreen extends StatelessWidget {
                             Center(
                               child: Text(
                                 weatherProviderTrue.weather[index],
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),),
-
-
                             Text(
                               weatherProviderTrue.weather1[index].toString(),
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ), Text(
                               weatherProviderTrue.weather2[index],
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
 
-                            Spacer(),
+                            const Spacer(),
                             IconButton(
                                 onPressed: () {
-                                  weatherProviderTrue.weather.removeAt(index);
-
+                                  weatherProviderFalse.removeAtIndex(index);
                                 },
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.delete,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 ))
                           ],
                         ),
@@ -75,8 +71,9 @@ class FavouriteScreen extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).pushNamed('/home');
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
 }
+

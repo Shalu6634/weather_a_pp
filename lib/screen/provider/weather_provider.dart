@@ -24,31 +24,31 @@ class WeatherProvider extends ChangeNotifier {
     return weatherModal;
   }
 
-
-
-  Future<void> addToFavourite2(double temp_c)
-  async {
+  Future<void> addToFavourite2(double temp_c) async {
     double data = temp_c;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     weather1.add(data);
     sharedPreferences.setStringList('weather', weather);
+    sharedPreferences.get('weather');
   }
-  Future<void> addToFavourite1( String name )
-  async { String data = name;
-  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  weather.add(data);
-  sharedPreferences.setStringList('weather', weather);
+
+  Future<void> addToFavourite1(String name) async {
+    String data = name;
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    weather.add(data);
+    sharedPreferences.setStringList('weather', weather);
+    sharedPreferences.get('weather');
   }
-  Future<void> addToFavourite3(String text)
-  async {
+
+  Future<void> addToFavourite3(String text) async {
     String data = text;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     weather2.add(data);
     sharedPreferences.setStringList('weather', weather);
-  }
+    sharedPreferences.get('weather');
+
     notifyListeners();
-
-
+  }
 
   Future<void> getFavouriteScreen() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -56,7 +56,9 @@ class WeatherProvider extends ChangeNotifier {
     print(weather);
     notifyListeners();
   }
+
+  void removeAtIndex(int index) {
+    weather.removeAt(index);
+    notifyListeners();
   }
-
-
-
+}
